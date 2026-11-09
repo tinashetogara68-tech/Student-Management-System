@@ -1,6 +1,6 @@
 # Student-Management-System
 
-
+![Screenshot](https://github.com/tinashetogara68-tech/Student-Management-System/blob/2cdd54391d487fcbf105190591d7dab26d7ce35c/Screenshot%20(4).png)
 
 ## Overview
 
