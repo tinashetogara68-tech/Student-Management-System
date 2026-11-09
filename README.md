@@ -10,13 +10,20 @@ The system uses Qt's `QProcess` to launch the data-entry application as a separa
 
 ## Features
 
-### 1. Student Data Entry
+### 1. Student Data Entry and Input Validation
+
 - Separate Qt application for capturing student details.
 - Accepts student numbers, module codes and marks.
-- Uses input masks and regular expressions to validate user input.
+- Implements input masks and regular expression validation to ensure that submitted information follows the required formats.
+- Applies the following input validation rules:
+  - **Student Number:** Must consist of exactly four digits.
+  - **Module Code:** Must contain three uppercase alphabetic characters, followed by a year digit (`1`, `2` or `3`), two additional digits, and a final character that may be either alphabetic or numeric.
+  - **Module Mark:** Must be an integer between 0 and 100.
+- Uses validation techniques to minimise incorrect or improperly formatted user input.
 - Communicates submitted student information to the main application through standard output.
 
 ### 2. Student Record Management
+
 - Creates and maintains student records.
 - Uses a Singleton `StudentList` to manage the collection of student records.
 - Checks whether a student already exists using their student number.
@@ -25,14 +32,16 @@ The system uses Qt's `QProcess` to launch the data-entry application as a separa
 - Prevents duplicate module registrations for a student.
 
 ### 3. Academic Performance Processing
+
 - Calculates the average mark across a student's modules.
 - Tracks passed modules.
 - Determines whether a student meets the graduation eligibility requirements.
 - Retrieves and displays student information, including their student number, registered modules, academic average and graduation status.
 
 ### 4. XML Data Persistence
+
 - Uses XML to store student information.
-- Serialises student records when the main application closes.
+- Serialises student records when the application closes.
 - Handles XML file creation through a dedicated `FileWriter` class.
 - Preserves student records outside the application's runtime.
 
@@ -42,9 +51,7 @@ The system uses Qt's `QProcess` to launch the data-entry application as a separa
 - **Framework:** Qt
 - **Build System:** CMake
 - **Process Management:** QProcess
-- **Input Validation:** QRegularExpression and QRegularExpressionValidator
+- **Input Validation:** Input Masks, QRegularExpression and QRegularExpressionValidator
 - **Data Management:** Object-Oriented Programming and Singleton Design Pattern
 - **Data Persistence:** XML
 - **GUI Development:** Qt Widgets and layouts
-
-
